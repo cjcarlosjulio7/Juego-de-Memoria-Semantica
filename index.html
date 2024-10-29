@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria Semántica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Pantalla de Inicio -->
+    <div id="start-screen" class="screen">
+        <h1>Memoria Semántica</h1>
+        <p>Ingresa tu nombre para comenzar:</p>
+        <input type="text" id="user-name" placeholder="Tu nombre">
+        <button id="start-button">Iniciar Juego</button>
+    </div>
+
+    <!-- Pantalla del Juego -->
+    <div id="game-screen" class="screen" style="display: none;">
+        <header>
+            <button id="new-game-button">Nuevo Juego</button>
+            <h2>Memoria Semántica</h2>
+            <button id="exit-button">X</button>
+        </header>
+        <p class="instructions">INSTRUCCIONES: Arrastra cada palabra a su categoría</p>
+
+        <div class="words">
+            <button class="word">Jabón</button>
+            <button class="word">Cuchillo</button>
+            <button class="word">Librero</button>
+            <button class="word">Ensaladera</button>
+            <button class="word">Ollas</button>
+            <button class="word">Vitrinas</button>
+            <button class="word">Sartén</button>
+            <button class="word">Desodorante</button>
+        </div>
+
+        <div class="categories">
+            <div class="category" data-category="Cocina">Cocina</div>
+            <div class="category" data-category="Aseo">Aseo</div>
+            <div class="category" data-category="Muebles">Muebles</div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Resultados (Futura Implementación) -->
+    <div id="result-screen" class="screen" style="display: none;">
+        <h2>Resultados</h2>
+        <p>Nombre del jugador: <span id="player-name"></span></p>
+        <p>Tiempo: <span id="game-time"></span></p>
+        <p>Errores: <span id="error-count"></span></p>
+        <button id="restart-button">Jugar de Nuevo</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
