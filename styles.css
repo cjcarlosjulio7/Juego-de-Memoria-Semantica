@@ -149,6 +149,32 @@ header {
     border-color: yellow;
 }
 
+/* Estilo del contenedor de notificación */
+.notification {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 100px 70px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    visibility: visible; /* Oculto por defecto */
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+}
+
+/* Estilos para mensajes correctos e incorrectos */
+.notification.correct {
+    background-color: #4caf50; /* Verde para correcto */
+}
+
+.notification.incorrect {
+    background-color: #f44336; /* Rojo para incorrecto */
+}
+
 /* Pantalla de Resultados */
 #result-screen {
     width: 80%;
@@ -169,3 +195,4 @@ header {
 #restart-button:hover {
     background-color: #45a049;
 }
+

@@ -34,22 +34,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botón de Nuevo Juego
     newGameButton.addEventListener("click", () => {
-        showScreen(startScreen);
+        location.reload(); 
         userNameInput.value = "";
     });
 
     // Botón de Salir
     exitButton.addEventListener("click", () => {
-        showScreen(startScreen);
+        location.reload();
         userNameInput.value = "";
     });
 
     // Botón de Jugar de Nuevo (pantalla de resultados)
     restartButton.addEventListener("click", () => {
-        showScreen(startScreen);
+        location.reload();
         userNameInput.value = "";
     });
 
     // Mostrar pantalla de inicio al cargar
     showScreen(startScreen);
 });
+
+// Seleccionar todas las palabras, las categorías y el contenedor de notificación
+const words = document.querySelectorAll('.word');
+const categories = document.querySelectorAll('.category');
+const notification = document.getElementById('notification');
+
+// Función para mostrar el mensaje de notificación
+function showNotification(message, isCorrect) {
+    notification.textContent = message;
+    notification.classList.toggle('correct', isCorrect);
+    notification.classList.toggle('incorrect', !isCorrect);
+    notification.style.visibility = 'visible';
+    notification.style.opacity = '1';
+
+    // Ocultar la notificación después de 2 segundos
+    setTimeout(() => {
+        notification.style.visibility = 'hidden';
+        notification.style.opacity = '0';
+    }, 2000);
+}
+
+words.forEach(word => {
+    // Cuando comienza a arrastrar la palabra
+    word.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', word.getAttribute('data-category'));
+        word.classList.add('dragging');
+    });
+
+    // Cuando se termina de arrastrar la palabra
+    word.addEventListener('dragend', () => {
+        word.classList.remove('dragging');
+    });
+});
+
+categories.forEach(category => {
+    // Permitir que los elementos se suelten en la categoría
+    category.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    // Lógica cuando se suelta una palabra en una categoría
+    category.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const draggedCategory = e.dataTransfer.getData('text/plain');
+        const targetCategory = category.getAttribute('data-category');
+        
+        // Obtener el elemento de la palabra arrastrada
+        const word = document.querySelector(`.word.dragging`);
+
+        // Validar si la palabra arrastrada coincide con la categoría
+        if (draggedCategory === targetCategory) {
+            // Mostrar mensaje de correcto y ocultar la palabra
+            showNotification("¡Correcto!", true);
+            setTimeout(() => word.remove(), 800); // Oculta la palabra después de un corto tiempo
+        } else {
+            // Mostrar mensaje de incorrecto
+            showNotification("Incorrecto", false);
+        }
+    });
+});
+
