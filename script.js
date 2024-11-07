@@ -1,10 +1,18 @@
 // script.js
+const startScreen = document.getElementById("start-screen");
+const gameScreen = document.getElementById("game-screen");
+const resultScreen = document.getElementById("result-screen");
+
+// Función para mostrar una pantalla específica
+function showScreen(screen) {
+    startScreen.style.display = "none";
+    gameScreen.style.display = "none";
+    resultScreen.style.display = "none";
+    screen.style.display = "flex";
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    const startScreen = document.getElementById("start-screen");
-    const gameScreen = document.getElementById("game-screen");
-    const resultScreen = document.getElementById("result-screen");
-
+    
     const startButton = document.getElementById("start-button");
     const newGameButton = document.getElementById("new-game-button");
     const exitButton = document.getElementById("exit-button");
@@ -13,14 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userNameInput = document.getElementById("user-name");
     const playerNameDisplay = document.getElementById("player-name");
 
-    // Función para mostrar una pantalla específica
-    function showScreen(screen) {
-        startScreen.style.display = "none";
-        gameScreen.style.display = "none";
-        resultScreen.style.display = "none";
-        screen.style.display = "flex";
-    }
-
+    
     // Iniciar juego
     startButton.addEventListener("click", () => {
         const userName = userNameInput.value.trim();
@@ -58,6 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const words = document.querySelectorAll('.word');
 const categories = document.querySelectorAll('.category');
 const notification = document.getElementById('notification');
+let remainingWords = words.length; // Contador de palabras restantes
+
 
 // Función para mostrar el mensaje de notificación
 function showNotification(message, isCorrect) {
@@ -106,11 +109,21 @@ categories.forEach(category => {
         if (draggedCategory === targetCategory) {
             // Mostrar mensaje de correcto y ocultar la palabra
             showNotification("¡Correcto!", true);
+            remainingWords--;
+            
             setTimeout(() => word.remove(), 800); // Oculta la palabra después de un corto tiempo
         } else {
             // Mostrar mensaje de incorrecto
             showNotification("Incorrecto", false);
         }
+        
+        // Validar si ya no quedan palabras
+        if(remainingWords==0){
+            setTimeout(() => {
+                showScreen(resultScreen);  // Cambiar a la pantalla de resultados después de 2 segundos
+            }, 1000);  // 1000 milisegundos 
+        }
+        
     });
 });
 
