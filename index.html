@@ -10,58 +10,58 @@
 
 <body>
     <!-- Pantalla de Inicio -->
-    <div id="start-screen" class="screen">
+    <div id="pantalla-inicio" class="pantalla">
         <h1>Memoria Semántica</h1>
         <p>Ingresa tu nombre para comenzar:</p>
-        <input type="text" id="user-name" placeholder="Tu nombre">
-        <button id="start-button">Iniciar Juego</button>
+        <input type="text" id="nombre-usuario" placeholder="Tu nombre">
+        <button id="boton-iniciar">Iniciar Juego</button>
     </div>
 
     <!-- Pantalla del Juego -->
-    <div id="game-screen" class="screen" style="display: none;">
+    <div id="pantalla-juego" class="pantalla" style="display: none;">
         <header>
-            <button id="new-game-button">Nuevo Juego</button>
+            <button id="boton-nuevo-juego">Nuevo Juego</button>
             <h2>Memoria Semántica</h2>
-            <button id="exit-button">X</button>
+            <button id="boton-salir">X</button>
         </header>
-        <p class="instructions">INSTRUCCIONES: Arrastra cada palabra a su categoría</p>
+        <p class="instrucciones">INSTRUCCIONES: Arrastra cada palabra a su categoría</p>
 
-        <div class="words">
-            <div class="word" draggable="true" data-category="Aseo">Jabón</div>
-            <div class="word" draggable="true" data-category="Cocina">Cuchillo</div>
-            <div class="word" draggable="true" data-category="Muebles">Librero</div>
-            <div class="word" draggable="true" data-category="Cocina">Ensaladera</div>
-            <div class="word" draggable="true" data-category="Cocina">Ollas</div>
-            <div class="word" draggable="true" data-category="Muebles">Vitrinas</div>
-            <div class="word" draggable="true" data-category="Cocina">Sartén</div>
-            <div class="word" draggable="true" data-category="Aseo">Desodorante</div>
+        <div class="palabras">
+            <div class="palabra" draggable="true" data-categoria="Aseo">Jabón</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Cuchillo</div>
+            <div class="palabra" draggable="true" data-categoria="Muebles">Librero</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Ensaladera</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Ollas</div>
+            <div class="palabra" draggable="true" data-categoria="Muebles">Vitrinas</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Sartén</div>
+            <div class="palabra" draggable="true" data-categoria="Aseo">Desodorante</div>
         </div>
 
-        <div class="categories">
-            <div class="category" data-category="Cocina">Cocina</div>
-            <div class="category" data-category="Aseo">Aseo</div>
-            <div class="category" data-category="Muebles">Muebles</div>
+        <div class="categorias">
+            <div class="categoria" data-categoria="Cocina">Cocina</div>
+            <div class="categoria" data-categoria="Aseo">Aseo</div>
+            <div class="categoria" data-categoria="Muebles">Muebles</div>
         </div>
     </div>
 
-    <!-- Pantalla Final Usuario-->
-    <div id="final-screen" class="screen" style="display: none;">
-        <h1>Bien Hecho <span id="player-name"></span></h1>
+    <!-- Pantalla Final Usuario -->
+    <div id="pantalla-final" class="pantalla" style="display: none;">
+        <h1>Bien Hecho <span id="nombre-jugador"></span></h1>
         <p>Juego Completado 8/8</p>
-        <button id="restart-button">Jugar de Nuevo</button>
+        <button id="boton-reiniciar">Jugar de Nuevo</button>
     </div>
 
     <!-- Pantalla de Resultados (Futura Implementación) -->
-    <div id="result-screen" class="screen" style="display: none;">
+    <div id="pantalla-resultados" class="pantalla" style="display: none;">
         <h2>Resultados</h2>
-        <p>Nombre del jugador: <span id="player-name"></span></p>
-        <p>Tiempo: <span id="game-time"></span></p>
-        <p>Errores: <span id="error-count"></span></p>
-        <button id="restart-button">Jugar de Nuevo</button>
+        <p>Nombre del jugador: <span id="nombre-jugador"></span></p>
+        <p>Tiempo: <span id="tiempo-juego"></span></p>
+        <p>Errores: <span id="contador-errores"></span></p>
+        <button id="boton-reiniciar">Jugar de Nuevo</button>
     </div>
 
     <!-- Contenedor para el mensaje emergente -->
-    <div id="notification" class="notification"></div>
+    <div id="notificacion" class="notificacion"></div>
 
     <script src="script.js"></script>
 </body>

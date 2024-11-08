@@ -15,7 +15,7 @@ body {
 }
 
 /* Ocultar todas las pantallas */
-.screen {
+.pantalla {
     display: none;
     text-align: center;
     background-color: #fff;
@@ -25,14 +25,13 @@ body {
     max-width: 800px;
 }
 
-#start-screen{
+#pantalla-inicio {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
-#game-screen {
+#pantalla-juego {
     min-height: 600px; 
     min-width: 600px;  
     display: flex;
@@ -41,24 +40,20 @@ body {
     justify-content: center;
 }
 
-#result-screen {
+#pantalla-resultados {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#final-screen {
-    /*width: 39%;
-    height: 40%;*/
+#pantalla-final {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-
 
 /* Pantalla de Inicio */
-#user-name {
+#nombre-usuario {
     margin: 10px 0px 20px 10px;
     padding: 15px;
     width: 80%;
@@ -67,7 +62,7 @@ body {
     border-radius: 8px;
 }
 
-#start-button {
+#boton-iniciar {
     padding: 15px 30px;
     font-size: 1.5rem;
     background-color: #4CAF50;
@@ -77,13 +72,12 @@ body {
     cursor: pointer;
 }
 
-#start-button:hover {
+#boton-iniciar:hover {
     background-color: #45a049;
 }
 
 /* Pantalla del Juego */
 header {
-
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -92,7 +86,7 @@ header {
     margin-bottom: 20px;
 }
 
-#new-game-button {
+#boton-nuevo-juego {
     padding: 10px 5px;
     font-size: 1.50rem;
     border-radius: 8px;
@@ -100,7 +94,7 @@ header {
     color: white;
 }
 
-#exit-button {
+#boton-salir {
     padding: 10px 20px;
     font-size: 1.25rem;
     border-radius: 8px;
@@ -108,21 +102,21 @@ header {
     color: white;
 }
 
-#new-game-button {
+#boton-nuevo-juego {
     background-color: green;
 }
 
-#exit-button {
+#boton-salir {
     background-color: red;
 }
 
-.instructions {
+.instrucciones {
     margin: 20px 0;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.words {
+.palabras {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -130,7 +124,7 @@ header {
     justify-content: center;
 }
 
-.word {
+.palabra {
     padding: 20px 30px;
     font-size: 1.5rem;
     background-color: #e0c4a0;
@@ -139,13 +133,13 @@ header {
     cursor: grab;
 }
 
-.categories {
+.categorias {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.category {
+.categoria {
     flex: 1;
     height: 150px;
     margin: 0 10px;
@@ -161,20 +155,20 @@ header {
     text-align: center;
 }
 
-.category[data-category="Cocina"] {
+.categoria[data-categoria="Cocina"] {
     border-color: red;
 }
 
-.category[data-category="Aseo"] {
+.categoria[data-categoria="Aseo"] {
     border-color: blue;
 }
 
-.category[data-category="Muebles"] {
+.categoria[data-categoria="Muebles"] {
     border-color: yellow;
 }
 
 /* Estilo del contenedor de notificación */
-.notification {
+.notificacion {
     position: fixed;
     top: 30%;
     left: 50%;
@@ -191,16 +185,16 @@ header {
 }
 
 /* Estilos para mensajes correctos e incorrectos */
-.notification.correct {
+.notificacion.correcto {
     background-color: #4caf50; /* Verde para correcto */
 }
 
-.notification.incorrect {
+.notificacion.incorrecto {
     background-color: #f44336; /* Rojo para incorrecto */
 }
 
 /* Pantalla final */
-#restart-button {
+#boton-reiniciar {
     margin-top: 10px;
     padding: 15px 15px;
     font-size: 1.5rem;
@@ -211,12 +205,12 @@ header {
     cursor: pointer;
 }
 
-#restart-button:hover {
+#boton-reiniciar:hover {
     background-color: #45a049;
 }
 
 /* Pantalla de Resultados */
-#restart-button {
+#boton-reiniciar {
     margin-top: 20px;
     padding: 15px 30px;
     font-size: 1.5rem;
@@ -227,7 +221,6 @@ header {
     cursor: pointer;
 }
 
-#restart-button:hover {
+#boton-reiniciar:hover {
     background-color: #45a049;
 }
-

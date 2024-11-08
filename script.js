@@ -1,131 +1,125 @@
 // script.js
-const startScreen = document.getElementById("start-screen");
-const gameScreen = document.getElementById("game-screen");
-const finalScreen = document.getElementById("final-screen");
-const resultScreen = document.getElementById("result-screen");
+const pantallaInicio = document.getElementById("pantalla-inicio");
+const pantallaJuego = document.getElementById("pantalla-juego");
+const pantallaFinal = document.getElementById("pantalla-final");
+const pantallaResultados = document.getElementById("pantalla-resultados");
 
 // Función para mostrar una pantalla específica
-function showScreen(screen) {
-    startScreen.style.display = "none";
-    gameScreen.style.display = "none";
-    finalScreen.style.display = "none";
-    resultScreen.style.display = "none";
-    screen.style.display = "flex";
+function mostrarPantalla(pantalla) {
+    pantallaInicio.style.display = "none";
+    pantallaJuego.style.display = "none";
+    pantallaFinal.style.display = "none";
+    pantallaResultados.style.display = "none";
+    pantalla.style.display = "flex";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    const startButton = document.getElementById("start-button");
-    const newGameButton = document.getElementById("new-game-button");
-    const exitButton = document.getElementById("exit-button");
-    const restartButton = document.getElementById("restart-button");
+    const botonIniciar = document.getElementById("boton-iniciar");
+    const botonNuevoJuego = document.getElementById("boton-nuevo-juego");
+    const botonSalir = document.getElementById("boton-salir");
+    const botonReiniciar = document.getElementById("boton-reiniciar");
 
-    const userNameInput = document.getElementById("user-name");
-    const playerNameDisplay = document.getElementById("player-name");
+    const inputNombreUsuario = document.getElementById("nombre-usuario");
+    const nombreJugador = document.getElementById("nombre-jugador");
 
-    
     // Iniciar juego
-    startButton.addEventListener("click", () => {
-        const userName = userNameInput.value.trim();
-        if (userName) {
-            playerNameDisplay.textContent = userName;
-            showScreen(gameScreen);
+    botonIniciar.addEventListener("click", () => {
+        const nombreUsuario = inputNombreUsuario.value.trim();
+        if (nombreUsuario) {
+            nombreJugador.textContent = nombreUsuario;
+            mostrarPantalla(pantallaJuego);
         } else {
-            showNotification("EL NOMBRE ESTA VACÍO", false);
+            mostrarNotificacion("EL NOMBRE ESTÁ VACÍO", false);
         }
     });
 
     // Botón de Nuevo Juego
-    newGameButton.addEventListener("click", () => {
+    botonNuevoJuego.addEventListener("click", () => {
         location.reload(); 
-        userNameInput.value = "";
+        inputNombreUsuario.value = "";
     });
 
     // Botón de Salir
-    exitButton.addEventListener("click", () => {
+    botonSalir.addEventListener("click", () => {
         location.reload();
-        userNameInput.value = "";
+        inputNombreUsuario.value = "";
     });
 
     // Botón de Jugar de Nuevo (pantalla de resultados)
-    restartButton.addEventListener("click", () => {
+    botonReiniciar.addEventListener("click", () => {
         location.reload();
-        userNameInput.value = "";
+        inputNombreUsuario.value = "";
     });
 
     // Mostrar pantalla de inicio al cargar
-    showScreen(startScreen);
+    mostrarPantalla(pantallaInicio);
 });
 
 // Seleccionar todas las palabras, las categorías y el contenedor de notificación
-const words = document.querySelectorAll('.word');
-const categories = document.querySelectorAll('.category');
-const notification = document.getElementById('notification');
-let remainingWords = words.length; // Contador de palabras restantes
-
+const palabras = document.querySelectorAll('.palabra');
+const categorias = document.querySelectorAll('.categoria');
+const notificacion = document.getElementById('notificacion');
+let palabrasRestantes = palabras.length; // Contador de palabras restantes
 
 // Función para mostrar el mensaje de notificación
-function showNotification(message, isCorrect) {
-    notification.textContent = message;
-    notification.classList.toggle('correct', isCorrect);
-    notification.classList.toggle('incorrect', !isCorrect);
-    notification.style.visibility = 'visible';
-    notification.style.opacity = '1';
+function mostrarNotificacion(mensaje, esCorrecto) {
+    notificacion.textContent = mensaje;
+    notificacion.classList.toggle('correcto', esCorrecto);
+    notificacion.classList.toggle('incorrecto', !esCorrecto);
+    notificacion.style.visibility = 'visible';
+    notificacion.style.opacity = '1';
 
     // Ocultar la notificación después de 2 segundos
     setTimeout(() => {
-        notification.style.visibility = 'hidden';
-        notification.style.opacity = '0';
+        notificacion.style.visibility = 'hidden';
+        notificacion.style.opacity = '0';
     }, 2000);
 }
 
-words.forEach(word => {
+palabras.forEach(palabra => {
     // Cuando comienza a arrastrar la palabra
-    word.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', word.getAttribute('data-category'));
-        word.classList.add('dragging');
+    palabra.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', palabra.getAttribute('data-categoria'));
+        palabra.classList.add('arrastrando');
     });
 
     // Cuando se termina de arrastrar la palabra
-    word.addEventListener('dragend', () => {
-        word.classList.remove('dragging');
+    palabra.addEventListener('dragend', () => {
+        palabra.classList.remove('arrastrando');
     });
 });
 
-categories.forEach(category => {
+categorias.forEach(categoria => {
     // Permitir que los elementos se suelten en la categoría
-    category.addEventListener('dragover', (e) => {
+    categoria.addEventListener('dragover', (e) => {
         e.preventDefault();
     });
 
     // Lógica cuando se suelta una palabra en una categoría
-    category.addEventListener('drop', (e) => {
+    categoria.addEventListener('drop', (e) => {
         e.preventDefault();
-        const draggedCategory = e.dataTransfer.getData('text/plain');
-        const targetCategory = category.getAttribute('data-category');
+        const categoriaArrastrada = e.dataTransfer.getData('text/plain');
+        const categoriaObjetivo = categoria.getAttribute('data-categoria');
         
         // Obtener el elemento de la palabra arrastrada
-        const word = document.querySelector(`.word.dragging`);
+        const palabra = document.querySelector(`.palabra.arrastrando`);
 
         // Validar si la palabra arrastrada coincide con la categoría
-        if (draggedCategory === targetCategory) {
-            // Mostrar mensaje de correcto y ocultar la palabra
-            showNotification("¡Correcto!", true);
-            remainingWords--;
+        if (categoriaArrastrada === categoriaObjetivo) {
+            mostrarNotificacion("¡Correcto!", true);
+            palabrasRestantes--;
             
-            setTimeout(() => word.remove(), 800); // Oculta la palabra después de un corto tiempo
+            setTimeout(() => palabra.remove(), 800); // Oculta la palabra después de un corto tiempo
         } else {
-            // Mostrar mensaje de incorrecto
-            showNotification("Incorrecto", false);
+            mostrarNotificacion("Incorrecto", false);
         }
         
         // Validar si ya no quedan palabras
-        if(remainingWords==0){
+        if (palabrasRestantes == 0) {
             setTimeout(() => {
-                showScreen(finalScreen);  // Cambiar a la pantalla de resultados después de 2 segundos
-            }, 2000);  // 1000 milisegundos 
+                mostrarPantalla(pantallaFinal);  // Cambiar a la pantalla de resultados después de 2 segundos
+            }, 2000);  
         }
-        
     });
 });
-
