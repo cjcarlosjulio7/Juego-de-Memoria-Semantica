@@ -33,8 +33,8 @@ body {
 
 
 #game-screen {
-    min-height: 600px; /* Ajusta según el tamaño que quieras */
-    min-width: 600px;  /* Ajusta según el tamaño que quieras */
+    min-height: 600px; 
+    min-width: 600px;  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,10 +47,19 @@ body {
     align-items: center;
 }
 
+#final-screen {
+    /*width: 39%;
+    height: 40%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 /* Pantalla de Inicio */
 #user-name {
-    margin: 10px 0px 20px 0px;
+    margin: 10px 0px 20px 10px;
     padding: 15px;
     width: 80%;
     font-size: 1.5rem;
@@ -175,7 +184,7 @@ header {
     color: white;
     font-size: 16px;
     font-weight: bold;
-    visibility: visible; /* Oculto por defecto */
+    visibility: hidden; /* Oculto por defecto */
     opacity: 0;
     transition: opacity 0.3s, visibility 0.3s;
     z-index: 1000;
@@ -190,12 +199,23 @@ header {
     background-color: #f44336; /* Rojo para incorrecto */
 }
 
-/* Pantalla de Resultados */
-#result-screen {
-    width: 80%;
+/* Pantalla final */
+#restart-button {
+    margin-top: 10px;
+    padding: 15px 15px;
     font-size: 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+/* Pantalla de Resultados */
 #restart-button {
     margin-top: 20px;
     padding: 15px 30px;

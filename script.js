@@ -1,12 +1,14 @@
 // script.js
 const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
+const finalScreen = document.getElementById("final-screen");
 const resultScreen = document.getElementById("result-screen");
 
 // Función para mostrar una pantalla específica
 function showScreen(screen) {
     startScreen.style.display = "none";
     gameScreen.style.display = "none";
+    finalScreen.style.display = "none";
     resultScreen.style.display = "none";
     screen.style.display = "flex";
 }
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             playerNameDisplay.textContent = userName;
             showScreen(gameScreen);
         } else {
-            alert("Por favor ingresa tu nombre");
+            showNotification("EL NOMBRE ESTA VACÍO", false);
         }
     });
 
@@ -120,8 +122,8 @@ categories.forEach(category => {
         // Validar si ya no quedan palabras
         if(remainingWords==0){
             setTimeout(() => {
-                showScreen(resultScreen);  // Cambiar a la pantalla de resultados después de 2 segundos
-            }, 1000);  // 1000 milisegundos 
+                showScreen(finalScreen);  // Cambiar a la pantalla de resultados después de 2 segundos
+            }, 2000);  // 1000 milisegundos 
         }
         
     });
