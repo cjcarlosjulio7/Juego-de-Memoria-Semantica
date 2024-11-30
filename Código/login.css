@@ -16,11 +16,11 @@ body {
 
 .login-container {
     background-color: #fff;
-    padding: 40px;
+    padding: 100px 150px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     text-align: center;
 }
 
@@ -30,7 +30,7 @@ h2 {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: left;
 }
 
