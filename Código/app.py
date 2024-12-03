@@ -1,7 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from db_connection import create_connection
 
 app = Flask(__name__)
+
+# Ruta para mostrar el formulario de login
+@app.route('/')
+def mostrar_login():
+    return render_template('login.html')
 
 # Ruta para el login del terapeuta
 @app.route('/login', methods=['POST'])
@@ -13,7 +18,7 @@ def login():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute(
-        "SELECT * FROM terapeutas WHERE email = %s AND contraseña = SHA2(%s, 256)",
+        "SELECT * FROM terapeutas WHERE correo = %s AND contraseña = SHA2(%s, 256)",
         (email, password)
     )
     user = cursor.fetchone()
