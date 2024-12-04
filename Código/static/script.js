@@ -1,38 +1,19 @@
 // script.js
-const pantallaInicio = document.getElementById("pantalla-inicio");
 const pantallaJuego = document.getElementById("pantalla-juego");
 const pantallaFinal = document.getElementById("pantalla-final");
-const pantallaResultados = document.getElementById("pantalla-resultados");
 
 // Función para mostrar una pantalla específica
 function mostrarPantalla(pantalla) {
-    pantallaInicio.style.display = "none";
     pantallaJuego.style.display = "none";
     pantallaFinal.style.display = "none";
-    pantallaResultados.style.display = "none";
     pantalla.style.display = "flex";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    const botonIniciar = document.getElementById("boton-iniciar");
     const botonNuevoJuego = document.getElementById("boton-nuevo-juego");
     const botonSalir = document.getElementById("boton-salir");
     const botonReiniciar = document.getElementById("boton-reiniciar");
-
-    const inputNombreUsuario = document.getElementById("nombre-usuario");
-    const nombreJugador = document.getElementById("nombre-jugador");
-
-    // Iniciar juego
-    botonIniciar.addEventListener("click", () => {
-        const nombreUsuario = inputNombreUsuario.value.trim();
-        if (nombreUsuario) {
-            nombreJugador.textContent = nombreUsuario;
-            mostrarPantalla(pantallaJuego);
-        } else {
-            mostrarNotificacion("EL NOMBRE ESTÁ VACÍO", false);
-        }
-    });
 
     // Botón de Nuevo Juego
     botonNuevoJuego.addEventListener("click", () => {
@@ -53,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Mostrar pantalla de inicio al cargar
-    mostrarPantalla(pantallaInicio);
+    mostrarPantalla(pantallaJuego);
 });
 
 // Seleccionar todas las palabras, las categorías y el contenedor de notificación
