@@ -19,9 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const botonNuevoJuego = document.getElementById("boton-nuevo-juego");
     const botonSalir = document.getElementById("boton-salir");
+    const botonSalir2 = document.getElementById("boton-salir2");
     const botonReiniciar = document.getElementById("boton-reiniciar");
     
     // Botón de Nuevo Juego
+    
     botonNuevoJuego.addEventListener("click", () => {
         location.reload(); 
         inputNombreUsuario.value = "";
@@ -29,6 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botón de Salir
     botonSalir.addEventListener("click", () => {
+        window.history.back(); // Redirige a la página anterior
+    });
+
+     // Botón de Salir (pantalla de resultados)
+     botonSalir2.addEventListener("click", () => {
         window.history.back(); // Redirige a la página anterior
     });
 

@@ -175,6 +175,15 @@ header {
     cursor: pointer;
 }
 
+#boton-salir2 {
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+}
+
 #boton-reiniciar:hover {
     background-color: #45a049;
 }
