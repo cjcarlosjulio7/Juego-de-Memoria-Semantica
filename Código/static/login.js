@@ -15,8 +15,8 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {  
-            alert('Login exitoso');
-            window.location.href = '/pacientes'; // Cambia a la página de pacientes
+            alert('Login exitosooo');
+            window.location.href = '/terapeuta'; // Cambia a la página de terapeuta
         } else {
             document.getElementById('error-message').textContent = data.message;
             alert('Contraseña Incorrecta');

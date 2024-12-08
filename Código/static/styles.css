@@ -26,7 +26,6 @@ body {
 }
 
 
-
 #pantalla-juego {
     min-height: 600px; 
     min-width: 600px;  
@@ -37,9 +36,12 @@ body {
 }
 
 #pantalla-final {
+    min-height: 300px; 
+    min-width: 300px; 
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 /* Pantalla del Juego */
@@ -141,7 +143,7 @@ header {
     transform: translateX(-50%);
     padding: 100px 70px;
     border-radius: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     font-weight: bold;
     visibility: hidden; /* Oculto por defecto */
@@ -152,14 +154,16 @@ header {
 
 /* Estilos para mensajes correctos e incorrectos */
 .notificacion.correcto {
-    background-color: #4caf50; /* Verde para correcto */
+    background-color: #4caf4f; /* Verde para correcto */
 }
 
 .notificacion.incorrecto {
-    background-color: #f44336; /* Rojo para incorrecto */
+    background-color: rgb(230, 230, 39); /* Rojo para incorrecto */
+    border: 2px solid #ecf842;
 }
 
 /* Pantalla final */
+
 #boton-reiniciar {
     margin-top: 10px;
     padding: 15px 15px;
