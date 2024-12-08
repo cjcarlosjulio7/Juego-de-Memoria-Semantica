@@ -114,6 +114,7 @@ def obtener_estadisticas(id):
     
     return jsonify(estadisticas)
 
+#juego
 @app.route('/juego')
 def juego():
     paciente_id = request.args.get('id')
