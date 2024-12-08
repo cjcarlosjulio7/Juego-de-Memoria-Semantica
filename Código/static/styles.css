@@ -25,11 +25,6 @@ body {
     max-width: 800px;
 }
 
-#pantalla-inicio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 #pantalla-juego {
     min-height: 600px; 
@@ -40,40 +35,13 @@ body {
     justify-content: center;
 }
 
-#pantalla-resultados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 #pantalla-final {
+    min-height: 300px; 
+    min-width: 300px; 
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-/* Pantalla de Inicio */
-#nombre-usuario {
-    margin: 10px 0px 20px 10px;
-    padding: 15px;
-    width: 80%;
-    font-size: 1.5rem;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-}
-
-#boton-iniciar {
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-#boton-iniciar:hover {
-    background-color: #45a049;
 }
 
 /* Pantalla del Juego */
@@ -175,7 +143,7 @@ header {
     transform: translateX(-50%);
     padding: 100px 70px;
     border-radius: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     font-weight: bold;
     visibility: hidden; /* Oculto por defecto */
@@ -186,14 +154,16 @@ header {
 
 /* Estilos para mensajes correctos e incorrectos */
 .notificacion.correcto {
-    background-color: #4caf50; /* Verde para correcto */
+    background-color: #4caf4f; /* Verde para correcto */
 }
 
 .notificacion.incorrecto {
-    background-color: #f44336; /* Rojo para incorrecto */
+    background-color: rgb(230, 230, 39); /* Rojo para incorrecto */
+    border: 2px solid #ecf842;
 }
 
 /* Pantalla final */
+
 #boton-reiniciar {
     margin-top: 10px;
     padding: 15px 15px;
@@ -205,20 +175,17 @@ header {
     cursor: pointer;
 }
 
-#boton-reiniciar:hover {
-    background-color: #45a049;
-}
-
-/* Pantalla de Resultados */
-#boton-reiniciar {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+#boton-salir2 {
+    padding: 10px 20px;
+    font-size: 1.25rem;
     border-radius: 8px;
     cursor: pointer;
+    color: white;
+    background-color: red;
+}
+
+#boton-reiniciar:hover {
+    background-color: #45a049;
 }
 
 #boton-reiniciar:hover {

@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f3e0c8;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+}
+
+button {
+    padding: 20px 50px;
+    background-color: #45a049;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2f6d33;
+}
+
+
+p {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin: 0; 
+}
+
+p strong {
+    color: #555;
+}
+
+/* Enlace de regreso */
+a {
+    margin-top: 20px;
+    padding: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #45a049;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+
+
+table {
+    width: 100%;
+    /*width: 80%; */ /* Ancho de la tabla */
+    text-align: center;
+    border-collapse: collapse;
+    /* margin: 0 auto; *//* Esto centra la tabla en su contenedor */
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #ffffff;
+    color: rgb(7, 7, 7);
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #45a049; /* Color más oscuro al pasar el cursor */
+    cursor: pointer;          /* Cambia el cursor a pointer para indicar clic */
+}
+
+.regresar{
+    text-align: center;
+}

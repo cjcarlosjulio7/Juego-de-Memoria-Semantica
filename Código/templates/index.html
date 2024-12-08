@@ -5,24 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Memoria Semántica</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 
 <body>
-    <!-- Pantalla de Inicio -->
-    <div id="pantalla-inicio" class="pantalla">
-        <h1>Memoria Semántica</h1>
-        <p>Ingresa tu nombre para comenzar:</p>
-        <input type="text" id="nombre-usuario" placeholder="Tu nombre">
-        <button id="boton-iniciar">Iniciar Juego</button>
-    </div>
-
+    
     <!-- Pantalla del Juego -->
-    <div id="pantalla-juego" class="pantalla" style="display: none;">
+    <div id="pantalla-juego" class="pantalla">
         <header>
             <button id="boton-nuevo-juego">Nuevo Juego</button>
             <h2>Memoria Semántica</h2>
-            <button id="boton-salir">X</button>
+            <button id="boton-salir">Salir</button>
         </header>
         <p class="instrucciones">INSTRUCCIONES: Arrastra cada palabra a su categoría</p>
 
@@ -46,24 +39,18 @@
 
     <!-- Pantalla Final Usuario -->
     <div id="pantalla-final" class="pantalla" style="display: none;">
-        <h1>Bien Hecho <span id="nombre-jugador"></span></h1>
+        <h1>Bien Hecho</h1>
         <p>Juego Completado 8/8</p>
+        <br>
         <button id="boton-reiniciar">Jugar de Nuevo</button>
-    </div>
-
-    <!-- Pantalla de Resultados (Futura Implementación) -->
-    <div id="pantalla-resultados" class="pantalla" style="display: none;">
-        <h2>Resultados</h2>
-        <p>Nombre del jugador: <span id="nombre-jugador"></span></p>
-        <p>Tiempo: <span id="tiempo-juego"></span></p>
-        <p>Errores: <span id="contador-errores"></span></p>
-        <button id="boton-reiniciar">Jugar de Nuevo</button>
+        <br> <br> <br>
+        <button id="boton-salir2">Salir</button>
     </div>
 
     <!-- Contenedor para el mensaje emergente -->
     <div id="notificacion" class="notificacion"></div>
 
-    <script src="script.js"></script>
+    <script src="../static/script.js"></script>
 </body>
 
 </html>
