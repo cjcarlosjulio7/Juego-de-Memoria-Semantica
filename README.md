@@ -55,8 +55,8 @@ Instalar las siguientes dependencias usando `pip`:
 
 ### 4. Instala las dependencias en Visual Studio Code 
 
-  pip install flask
-  pip install mysql-connector-python
+- pip install flask
+- pip install mysql-connector-python
 
 ### 5. Ejecutar la aplicación 
 
