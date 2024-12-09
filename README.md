@@ -10,8 +10,8 @@ El jugador debe **arrastrar y soltar palabras** en su categoría correspondiente
 
 ### Software
 - Python 3.8 o superior
-- MySQL Server y MySQL Workbench
-- Un editor de texto o IDE (como Visual Studio Code o PyCharm)
+- MySQL Workbench
+- IDE Visual Studio Code
 
 ### Bibliotecas de Python
 Instalar las siguientes dependencias usando `pip`:
