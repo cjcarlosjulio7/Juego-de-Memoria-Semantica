@@ -23,7 +23,7 @@ Instalar las siguientes dependencias usando `pip`:
 ## Pasos para Ejecutar el Proyecto
 
 ### 1. Clonar el Repositorio
-
+   ```python
    git clone <URL_DEL_REPOSITORIO>
    cd <NOMBRE_DEL_PROYECTO>
 
