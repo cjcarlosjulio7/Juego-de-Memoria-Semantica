@@ -1,0 +1,233 @@
+/* Estilos globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3e0c8;
+}
+
+/* Ocultar todas las pantallas */
+.screen {
+    display: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    max-width: 800px;
+}
+
+#start-screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#game-screen {
+    min-height: 600px; 
+    min-width: 600px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#result-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#final-screen {
+    /*width: 39%;
+    height: 40%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Pantalla de Inicio */
+#user-name {
+    margin: 10px 0px 20px 10px;
+    padding: 15px;
+    width: 80%;
+    font-size: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    background-color: #45a049;
+}
+
+/* Pantalla del Juego */
+header {
+
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#new-game-button {
+    padding: 10px 5px;
+    font-size: 1.50rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+#exit-button {
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+#new-game-button {
+    background-color: green;
+}
+
+#exit-button {
+    background-color: red;
+}
+
+.instructions {
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.word {
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    background-color: #e0c4a0;
+    border: 3px solid #5a3e2b;
+    border-radius: 12px;
+    cursor: grab;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.category {
+    flex: 1;
+    height: 150px;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: gray;
+    text-align: center;
+}
+
+.category[data-category="Cocina"] {
+    border-color: red;
+}
+
+.category[data-category="Aseo"] {
+    border-color: blue;
+}
+
+.category[data-category="Muebles"] {
+    border-color: yellow;
+}
+
+/* Estilo del contenedor de notificación */
+.notification {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 100px 70px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+}
+
+/* Estilos para mensajes correctos e incorrectos */
+.notification.correct {
+    background-color: #4caf50; /* Verde para correcto */
+}
+
+.notification.incorrect {
+    background-color: #f44336; /* Rojo para incorrecto */
+}
+
+/* Pantalla final */
+#restart-button {
+    margin-top: 10px;
+    padding: 15px 15px;
+    font-size: 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+/* Pantalla de Resultados */
+#restart-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
