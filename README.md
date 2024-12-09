@@ -23,9 +23,11 @@ Instalar las siguientes dependencias usando `pip`:
 ## Pasos para Ejecutar el Proyecto
 
 ### 1. Clonar el Repositorio
-   ```python
+   ```bash
    git clone <URL_DEL_REPOSITORIO>
    cd <NOMBRE_DEL_PROYECTO>
+
+---
 
 ### 2. Crear la Base de Datos con el Archivo QueryBaseDatos
 1. Ubica el archivo `QueryBaseDatos.sql` en el directorio raíz del proyecto.
