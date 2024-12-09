@@ -6,34 +6,61 @@ Este proyecto consiste en un **juego de memoria semántica** diseñado para ayud
 
 El jugador debe **arrastrar y soltar palabras** en su categoría correspondiente. Las categorías incluyen elementos comunes como "Cocina", "Aseo" y "Muebles". Al clasificar correctamente las palabras, el jugador recibe mensajes de retroalimentación, reforzando la memoria asociativa. Una vez que todas las palabras se han clasificado correctamente, el jugador pasa a la pantalla de felicitación.
 
-## Tecnologías Utilizadas
+## Requisitos Previos
 
-Este proyecto está desarrollado con una **Arquitectura de Tres Capas**:
+### Software
+- Python 3.8 o superior
+-  MySQL Workbench
+- IDE como Visual Studio Code 
 
-- **Frontend (Capa de Presentación)**: HTML, CSS y JavaScript para crear la interfaz de usuario y gestionar la interacción del usuario con el juego.
-- **Backend (Capa de Lógica de Negocio)**: Se prevé un servidor en Python para gestionar la lógica avanzada del juego, como el registro de puntajes y tiempos.
-- **Base de Datos (Capa de Datos)**: Se utiliza MongoDB para almacenar información sobre los jugadores, sus tiempos y estadísticas de partidas.
+----
+### Bibliotecas de Python
+Instalar las siguientes dependencias usando `pip`:
+- Flask
+- mysql-connector-python
 
-## Estructura del Proyecto
+---
 
-- `index.html`: Contiene la estructura HTML del juego.
-- `styles.css`: Define los estilos y la apariencia de la interfaz de usuario.
-- `script.js`: Implementa la lógica del juego, como el arrastre y el emparejamiento de categorías, así como la visualización de notificaciones.
+## Pasos para Ejecutar el Proyecto
 
-## Integrantes del Grupo
+### 1. Clonar el Repositorio
 
-- **Carlos Bayas**
-- **Issac de la Caden**
-- **Kevin Donoso**
-- **Andrea Oña**
-- **Daniel Oña**
+-git clone <URL_DEL_REPOSITORIO>
+-cd <NOMBRE_DEL_PROYECTO>
 
-## Cómo Jugar
+### 2. Crear la Base de Datos con el Archivo QueryBaseDatos
+1. Ubica el archivo `QueryBaseDatos.sql` en el directorio raíz del proyecto.
+2. Abre **MySQL Workbench** e inicia sesión con tu usuario y contraseña de MySQL.
+3. Ve a la pestaña `File > Open Script` y selecciona el archivo `QueryBaseDatos.sql`.
+4. Ejecuta el script presionando el botón `Run` (o `Ctrl + Enter`).
+5. Verifica que las tablas y datos iniciales se hayan creado correctamente desde el panel de exploración de esquema en MySQL Workbench.
 
-1. Inicia el juego ingresando tu nombre en la pantalla de bienvenida y presionando "Iniciar Juego".
-2. Arrastra cada palabra al área de su categoría correspondiente.
-3. Si la palabra está en la categoría correcta, recibirás un mensaje de "¡Correcto!".
-4. Al clasificar todas las palabras correctamente, se mostrará una pantalla de felicitación.
-5. Puedes volver a jugar seleccionando "Jugar de Nuevo".
+---
 
+### 3. Configurar la Conexión a la Base de Datos
+1. Abre el archivo `db_connection.py`.
+2. Actualiza los datos de conexión para que coincidan con tu configuración local:
+   ```python
+   import mysql.connector
+
+   def create_connection():
+       return mysql.connector.connect(
+           host="localhost",
+           user="<USUARIO>",          # Reemplaza con tu usuario de MySQL
+           password="<CONTRASEÑA>",   # Reemplaza con tu contraseña de MySQL
+           database="memoria_semantica"
+       )
+   
+---
+
+### 4. Instalar Dependencias
+-pip install flask 
+-pip install mysql-connector-python
+
+---
+
+### 5. Ejecutar App
+
+-Colocarse en el archivo app.py y ejecutarlo para abrir el servidor en el puerto 5000
+- o ejecuta en el terminal el comando python app.py
 
