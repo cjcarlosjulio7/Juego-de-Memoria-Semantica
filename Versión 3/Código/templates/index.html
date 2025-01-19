@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria Semántica</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+
+    <!-- Pantalla del Juego -->
+    <div id="pantalla-juego" class="pantalla">
+        <header>
+            <button id="boton-nuevo-juego">Nuevo Juego</button>
+            <h2>Memoria Semántica</h2>
+            <button id="boton-salir">Salir</button>
+        </header>
+        <p class="instrucciones">INSTRUCCIONES: Arrastra cada palabra a su categoría</p>
+
+        <div class="palabras">
+            <div class="palabra" draggable="true" data-categoria="Aseo">Jabón</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Cuchillo</div>
+            <div class="palabra" draggable="true" data-categoria="Muebles">Librero</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Ensaladera</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Ollas</div>
+            <div class="palabra" draggable="true" data-categoria="Muebles">Vitrinas</div>
+            <div class="palabra" draggable="true" data-categoria="Cocina">Sartén</div>
+            <div class="palabra" draggable="true" data-categoria="Aseo">Desodorante</div>
+        </div>
+
+        <div class="categorias">
+            <div class="categoria" data-categoria="Cocina">Cocina</div>
+            <div class="categoria" data-categoria="Aseo">Aseo</div>
+            <div class="categoria" data-categoria="Muebles">Muebles</div>
+        </div>
+    </div>
+
+    <!-- Pantalla Final Usuario -->
+    <div id="pantalla-final" class="pantalla" style="display: none;">
+        <h1>Bien Hecho</h1>
+        <p>Juego Completado 8/8</p>
+        <br>
+        <button id="boton-reiniciar">Jugar de Nuevo</button>
+        <br> <br> <br>
+        <button id="boton-salir2">Salir</button>
+    </div>
+
+    <!-- Contenedor para el mensaje emergente -->
+    <div id="notificacion" class="notificacion"></div>
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>
