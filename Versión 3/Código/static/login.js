@@ -15,12 +15,10 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {  
-            alert('Login exitosooo');
+            alert('Login exitoso');
             window.location.href = '/terapeuta'; // Cambia a la página de terapeuta
         } else {
-            document.getElementById('error-message').textContent = data.message;
-            alert('Contraseña Incorrecta');
-        }
+            document.getElementById('error-message').style.display = 'block';        }
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('error-message').textContent = 'Hubo un problema al iniciar sesión.';
