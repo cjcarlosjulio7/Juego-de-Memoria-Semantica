@@ -191,3 +191,14 @@ header {
 #boton-reiniciar:hover {
     background-color: #45a049;
 }
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Fondo semi-transparente */
+    z-index: 999; /* Capa sobre el resto del contenido */
+    display: none; /* Oculto por defecto */
+}

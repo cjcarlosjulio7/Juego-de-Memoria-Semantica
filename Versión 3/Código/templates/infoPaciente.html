@@ -9,13 +9,18 @@
 <body>
     <div class="header">
         <h1>Información del Paciente</h1>
-        <button id="add-play-btn">Nuevo Juego</button>
+        <button id="add-play-close">Cerrar Sesión</button>
     </div>
+        
         <p><strong>ID:</strong> {{ paciente['id'] }}</p>
         <p><strong>Nombre:</strong> {{ paciente['nombre'] }}</p>
         <p><strong>Apellido:</strong> {{ paciente['apellido'] }}</p>
         <p><strong>Edad:</strong> {{ paciente['edad'] }}</p>
-        <!-- Agrega más detalles si es necesario -->
+       
+    <div class="container" style="display: flex; justify-content: center;">
+        <button id="add-play-btn">Nuevo Juego</button>
+    </div>
+
     <table>
         <thead>
             <tr>

@@ -18,10 +18,9 @@ h1 {
 }
 
 button {
-    padding: 20px 50px;
+    padding: 20px 20px;
     background-color: #45a049;
     color: white;
-    font-size: 1.5rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -46,18 +45,16 @@ p strong {
 /* Enlace de regreso */
 a {
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 20px;
+    border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color: #ffffff;
-    font-size: 1rem;
-    font-weight: bold;
     background-color: #45a049;
 }
 
 a:hover {
-    text-decoration: underline;
-    color: #0056b3;
+    background-color: #2f6d33;
 }
 
 
@@ -96,4 +93,8 @@ tr:hover {
 
 .regresar{
     text-align: center;
+}
+
+.header button {
+    background-color: #e23d3d;
 }

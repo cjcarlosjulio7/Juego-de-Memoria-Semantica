@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 h1 {
@@ -104,4 +104,8 @@ tr:hover {
 
 .close-btn:hover {
     color: black;
+}
+
+.header button {
+    background-color: #e23d3d;
 }

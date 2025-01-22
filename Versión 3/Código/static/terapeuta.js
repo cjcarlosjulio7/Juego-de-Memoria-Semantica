@@ -84,6 +84,12 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// dirigir al login con el botón de cerrar sesión y bloquear el regreso
+document.getElementById('add-play-close').addEventListener('click', () => {
+    window.location.replace('/login');
+});
+
+
 
 
 

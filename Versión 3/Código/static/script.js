@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const palabras = document.querySelectorAll('.palabra');
 const categorias = document.querySelectorAll('.categoria');
 const notificacion = document.getElementById('notificacion');
+const overlay = document.getElementById('overlay');
 let palabrasRestantes = palabras.length; // Contador de palabras restantes
 let palabrasIncorrectas = 0; // Contador de palabras incorrectas
 
@@ -66,12 +67,16 @@ function mostrarNotificacion(mensaje, esCorrecto) {
     notificacion.classList.toggle('incorrecto', !esCorrecto);
     notificacion.style.visibility = 'visible';
     notificacion.style.opacity = '1';
+    overlay.style.display = 'block';
 
-    // Ocultar la notificación después de 2 segundos
+
+    // Ocultar la notificación después de 1 segundos y bloquear el contenido
     setTimeout(() => {
         notificacion.style.visibility = 'hidden';
         notificacion.style.opacity = '0';
+        overlay.style.display = 'none';
     }, 1000);
+
 }
 
 function calcularTiempoJugado() {
