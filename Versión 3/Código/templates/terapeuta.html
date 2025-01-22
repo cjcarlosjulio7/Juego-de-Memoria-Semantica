@@ -38,7 +38,8 @@
                 <label for="apellido">Apellido:</label>
                 <input type="text" id="apellido" required>
                 <label for="age">Edad:</label>
-                <input type="number" id="age" required>
+                <!-- numeros positivo -->
+                <input type="number" id="age" required min="1" max="120" step="1">
                 <button type="submit">Agregar</button>
             </form>
         </div>
