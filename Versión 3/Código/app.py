@@ -152,5 +152,25 @@ def registrar_estadisticas():
         print(e)
         return jsonify({'error': 'Error al guardar las estadísticas.'}), 500
 
+@app.route('/terapeutas', methods=['POST'])
+def agregar_terapeuta():
+    data = request.json
+    nombre = data.get('nombre')
+    apellido = data.get('apellido')
+    correo = data.get('correo')
+    contraseña = data.get('contraseña')
+
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute(
+        "INSERT INTO terapeutas (nombre, apellido, correo, contraseña) VALUES (%s, %s, %s, SHA2(%s, 256))",
+        (nombre, apellido, correo, contraseña)
+    )
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return jsonify({"message": "Terapeuta agregado exitosamente"}), 201
+
 if __name__ == '__main__':
     app.run(debug=True)

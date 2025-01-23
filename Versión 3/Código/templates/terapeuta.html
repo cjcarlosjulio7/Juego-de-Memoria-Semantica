@@ -36,9 +36,9 @@
             <h2>Agregar Paciente</h2>
             <form id="add-patient-form">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" required pattern="[A-Za-z]+" title="Solo letras">
                 <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" required>
+                <input type="text" id="apellido" required pattern="[A-Za-z]+" title="Solo letras">
                 <label for="age">Edad:</label>
                 <!-- numeros positivo -->
                 <input type="number" id="age" required min="1" max="120" step="1">
