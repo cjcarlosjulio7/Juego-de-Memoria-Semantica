@@ -25,7 +25,7 @@ body {
     max-width: 800px;
 }
 
-
+/*dimensione pantalla de juego*/
 #pantalla-juego {
     min-height: 600px; 
     min-width: 900px;  
