@@ -172,5 +172,58 @@ def agregar_terapeuta():
 
     return jsonify({"message": "Terapeuta agregado exitosamente"}), 201
 
+import random
+
+PALABRAS = [
+    {"palabra": "Jabón", "categoria": "Aseo"},
+    {"palabra": "Cuchillo", "categoria": "Cocina"},
+    {"palabra": "Librero", "categoria": "Muebles"},
+    {"palabra": "Ensaladera", "categoria": "Cocina"},
+    {"palabra": "Ollas", "categoria": "Cocina"},
+    {"palabra": "Vitrinas", "categoria": "Muebles"},
+    {"palabra": "Sartén", "categoria": "Cocina"},
+    {"palabra": "Desodorante", "categoria": "Aseo"},
+    {"palabra": "Escoba", "categoria": "Aseo"},
+    {"palabra": "Mesa", "categoria": "Muebles"},
+    {"palabra": "Plato", "categoria": "Cocina"},
+    {"palabra": "Silla", "categoria": "Muebles"},
+    {"palabra": "Shampoo", "categoria": "Aseo"},
+    {"palabra": "Toalla", "categoria": "Aseo"},
+    {"palabra": "Cafetera", "categoria": "Cocina"},
+    {"palabra": "Armario", "categoria": "Muebles"},
+    {"palabra": "Lavavajillas", "categoria": "Cocina"},
+    {"palabra": "Sofá", "categoria": "Muebles"},
+    {"palabra": "Papel Higiénico", "categoria": "Aseo"},
+    {"palabra": "Colador", "categoria": "Cocina"},
+    {"palabra": "Almohada", "categoria": "Muebles"},
+    {"palabra": "Esponja", "categoria": "Aseo"},
+    {"palabra": "Cucharón", "categoria": "Cocina"},
+    {"palabra": "Espejo", "categoria": "Muebles"},
+    {"palabra": "Colonia", "categoria": "Aseo"},
+    {"palabra": "Peinilla", "categoria": "Aseo"},
+    {"palabra": "Crema", "categoria": "Aseo"},
+    {"palabra": "Rallador", "categoria": "Cocina"},
+    {"palabra": "Taburetes", "categoria": "Muebles"},
+    {"palabra": "Escritorio", "categoria": "Muebles"},
+    {"palabra": "Estantes", "categoria": "Muebles"},
+    {"palabra": "Toallas", "categoria": "Aseo"},
+    {"palabra": "Pinzas", "categoria": "Aseo"},
+    {"palabra": "Piedra Pómez", "categoria": "Aseo"},
+    {"palabra": "Afeitadora", "categoria": "Aseo"},
+    {"palabra": "Mecedora", "categoria": "Muebles"},
+    {"palabra": "Tenedor", "categoria": "Cocina"},
+    {"palabra": "Cortauñas", "categoria": "Aseo"},
+    {"palabra": "Espátula", "categoria": "Cocina"},
+    {"palabra": "Cepillo de Dientes", "categoria": "Aseo"},
+    {"palabra": "Sillón", "categoria": "Muebles"},
+    {"palabra": "Vaso", "categoria": "Cocina"}
+]
+
+
+@app.route('/obtener-palabras')
+def obtener_palabras():
+    seleccionadas = random.sample(PALABRAS, 8)
+    return jsonify(seleccionadas)
+
 if __name__ == '__main__':
     app.run(debug=True)

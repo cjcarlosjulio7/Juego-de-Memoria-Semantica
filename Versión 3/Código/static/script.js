@@ -125,52 +125,76 @@ async function registrarEstadisticas(pacienteId, tiempo, errores) {
     }
 }
 
+async function cargarPalabras() {
+    try {
+        const response = await fetch('/obtener-palabras');  // Ruta del backend para palabras aleatorias
+        const palabras = await response.json();
 
-palabras.forEach(palabra => {
-    // Cuando comienza a arrastrar la palabra
-    palabra.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', palabra.getAttribute('data-categoria'));
-        palabra.classList.add('arrastrando');
+        const contenedorPalabras = document.querySelector('.palabras');
+        contenedorPalabras.innerHTML = '';  // Limpiar palabras anteriores
+
+        palabras.forEach(palabra => {
+            const div = document.createElement('div');
+            div.classList.add('palabra');
+            div.setAttribute('draggable', 'true');
+            div.setAttribute('data-categoria', palabra.categoria);
+            div.textContent = palabra.palabra;
+            contenedorPalabras.appendChild(div);
+        });
+
+        asignarEventosDragAndDrop();  // Activar los eventos después de agregar palabras
+    } catch (error) {
+        console.error('Error cargando palabras:', error);
+    }
+}
+
+// Función para asignar eventos Drag and Drop después de cargar dinámicamente
+function asignarEventosDragAndDrop() {
+    const palabras = document.querySelectorAll('.palabra');
+    const categorias = document.querySelectorAll('.categoria');
+
+    palabras.forEach(palabra => {
+        palabra.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', palabra.getAttribute('data-categoria'));
+            palabra.classList.add('arrastrando');
+        });
+
+        palabra.addEventListener('dragend', () => {
+            palabra.classList.remove('arrastrando');
+        });
     });
 
-    // Cuando se termina de arrastrar la palabra
-    palabra.addEventListener('dragend', () => {
-        palabra.classList.remove('arrastrando');
+    categorias.forEach(categoria => {
+        categoria.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        categoria.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const categoriaArrastrada = e.dataTransfer.getData('text/plain');
+            const categoriaObjetivo = categoria.getAttribute('data-categoria');
+            const palabra = document.querySelector(`.palabra.arrastrando`);
+
+            if (categoriaArrastrada === categoriaObjetivo) {
+                mostrarNotificacion("¡Correcto! Muy bien", true);
+                palabra.remove();
+            } else {
+                mostrarNotificacion("¡Inténtalo de nuevo!", false);
+                palabrasIncorrectas++;
+            }
+
+            if (document.querySelectorAll('.palabra').length === 0) {
+                finalizarJuego();
+                setTimeout(() => mostrarPantalla(pantallaFinal), 1000);
+            }
+        });
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarPalabras();  // Cargar palabras dinámicamente al inicio del juego
 });
 
-categorias.forEach(categoria => {
-    // Permitir que los elementos se suelten en la categoría
-    categoria.addEventListener('dragover', (e) => {
-        e.preventDefault();
-    });
 
-    // Lógica cuando se suelta una palabra en una categoría
-    categoria.addEventListener('drop', (e) => {
-        e.preventDefault();
-        const categoriaArrastrada = e.dataTransfer.getData('text/plain');
-        const categoriaObjetivo = categoria.getAttribute('data-categoria');
-        
-        // Obtener el elemento de la palabra arrastrada
-        const palabra = document.querySelector(`.palabra.arrastrando`);
 
-        // Validar si la palabra arrastrada coincide con la categoría
-        if (categoriaArrastrada === categoriaObjetivo) {
-            mostrarNotificacion("¡Correcto! Muy bien", true);
-            palabrasRestantes--;
-            
-            setTimeout(() => palabra.remove(), 800); // Oculta la palabra después de un corto tiempo
-        } else {
-            mostrarNotificacion("Intentalo de nuevo!", false);
-            palabrasIncorrectas++;
-        }
-        
-        // Validar si ya no quedan palabras
-        if (palabrasRestantes == 0) {
-            finalizarJuego();
-            setTimeout(() => {
-                mostrarPantalla(pantallaFinal);  // Cambiar a la pantalla de resultados después de 2 segundos
-            }, 1000);  
-        }
-    });     
-});
+
