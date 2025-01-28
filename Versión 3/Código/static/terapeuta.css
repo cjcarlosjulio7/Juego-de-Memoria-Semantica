@@ -18,15 +18,16 @@ h1 {
 
 button {
     padding: 20px 20px;
-    background-color: #45a049;
-    color: white;
+    background-color: rgb(27, 94, 32); /* Verde oscuro */
+    color: rgb(255, 255, 255); /* Blanco */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 12pt;
 }
 
 button:hover {
-    background-color: #2f6d33;
+    background-color: #1f8a25;
 }
 
 table {
@@ -107,5 +108,15 @@ tr:hover {
 }
 
 .header button {
-    background-color: #e23d3d;
+    padding: 20px 20px;
+    background-color: rgb(153,0,0); /* Rojo oscuro */
+    color: rgb(255, 255, 255); /* Blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+.header button:hover {
+    background-color: #ce0000;
 }

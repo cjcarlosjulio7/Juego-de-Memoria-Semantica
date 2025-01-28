@@ -51,16 +51,16 @@ input {
 button {
     width: 50%;
     padding: 12px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgb(27, 94, 32); /* Verde oscuro */
+    color: rgb(255, 255, 255); /* Blanco */
     border: none;
     border-radius: 4px;
-    font-size: 1.1rem;
     cursor: pointer;
+    font-size: 12pt;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #1f8a25;
 }
 
 #error-message {
@@ -102,5 +102,15 @@ button:hover {
     margin-top: 5px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: rgb(153,0,0);
     border-radius: 5px;
 }
