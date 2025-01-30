@@ -178,4 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPalabras();  // Cargar palabras dinámicamente al inicio del juego
 });
 
+
+
 module.exports = { calcularTiempoJugado, registrarEstadisticas };
