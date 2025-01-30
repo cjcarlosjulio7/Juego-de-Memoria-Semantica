@@ -1,0 +1,15 @@
+{
+  "name": "juego-de-memoria-semantica",
+  "version": "1.0.0",
+  "description": "Este proyecto consiste en un **juego de memoria semántica** diseñado para ayudar a personas con principios de Alzheimer, con el objetivo de ralentizar la pérdida de memoria y mejorar su situación actual. El juego utiliza categorías y palabras para estimular la memoria y la asociación, buscando promover la actividad cognitiva de forma entretenida y accesible.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
