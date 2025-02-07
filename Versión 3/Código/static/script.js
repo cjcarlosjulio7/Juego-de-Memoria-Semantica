@@ -1,49 +1,53 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const pantallaJuego = document.getElementById("pantalla-juego");
-    const pantallaFinal = document.getElementById("pantalla-final");
-    if (!pantallaJuego || !pantallaFinal) return;
+// script.js
+const pantallaJuego = document.getElementById("pantalla-juego");
+const pantallaFinal = document.getElementById("pantalla-final");
+// Variables para manejar el tiempo
+let tiempoInicio; // Tiempo en que inicia el juego
+let tiempoJugado; // Tiempo total jugado
+let pacienteId = null; // ID del paciente
+const urlParams = new URLSearchParams(window.location.search);
 
-    let tiempoInicio;
-    let tiempoJugado;
-    let pacienteId = null;
-    const urlParams = new URLSearchParams(window.location.search);
 
-    function mostrarPantalla(pantalla) {
-        pantallaJuego.style.display = "none";
-        pantallaFinal.style.display = "none";
-        pantalla.style.display = "flex";
-    }
+// Función para mostrar una pantalla específica
+function mostrarPantalla(pantalla) {
+    pantallaJuego.style.display = "none";
+    pantallaFinal.style.display = "none";
+    pantalla.style.display = "flex";
+}
 
+document.addEventListener("DOMContentLoaded", () => {
+    
     const botonNuevoJuego = document.getElementById("boton-nuevo-juego");
     const botonSalir = document.getElementById("boton-salir");
     const botonSalir2 = document.getElementById("boton-salir2");
     const botonReiniciar = document.getElementById("boton-reiniciar");
     
-    if (botonNuevoJuego) {
-        botonNuevoJuego.addEventListener("click", () => {
-            location.reload();
-        });
-    }
+    // Botón de Nuevo Juego
     
-    if (botonSalir) {
-        botonSalir.addEventListener("click", () => {
-            window.history.back();
-        });
-    }
-    
-    if (botonSalir2) {
-        botonSalir2.addEventListener("click", () => {
-            window.history.back();
-        });
-    }
-    
-    if (botonReiniciar) {
-        botonReiniciar.addEventListener("click", () => {
-            location.reload();
-        });
-    }
-    
-    tiempoInicio = new Date();
+    botonNuevoJuego.addEventListener("click", () => {
+        location.reload(); 
+        inputNombreUsuario.value = "";
+    });
+
+    // Botón de Salir
+    botonSalir.addEventListener("click", () => {
+        window.history.back(); // Redirige a la página anterior
+    });
+
+     // Botón de Salir (pantalla de resultados)
+     botonSalir2.addEventListener("click", () => {
+        window.history.back(); // Redirige a la página anterior
+    });
+
+    // Botón de Jugar de Nuevo (pantalla de resultados)
+    botonReiniciar.addEventListener("click", () => {
+        location.reload();
+    });
+
+    // Registrar el tiempo de inicio cuando carga la pantalla del juego
+    tiempoInicio = new Date(); // Guardar el tiempo de inicio
+
+    // Mostrar pantalla de inicio al cargar
     mostrarPantalla(pantallaJuego);
 });
 
@@ -76,13 +80,19 @@ function mostrarNotificacion(mensaje, esCorrecto) {
 }
 
 function calcularTiempoJugado() {
-    if (!tiempoInicio) return "00:00:00";
-    const tiempoFinal = new Date();
-    const tiempoJugadoMs = tiempoFinal - tiempoInicio;
+    const tiempoFinal = new Date(); // Registrar el tiempo de finalización
+    const tiempoJugadoMs = tiempoFinal - tiempoInicio; // Diferencia en milisegundos
+
+    // Convertir a horas, minutos y segundos
     const horas = Math.floor(tiempoJugadoMs / (1000 * 60 * 60));
     const minutos = Math.floor((tiempoJugadoMs % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((tiempoJugadoMs % (1000 * 60)) / 1000);
-    return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+
+    // Formatear en HH:MM:SS
+    tiempoJugado = 
+        `${horas.toString().padStart(2, '0')}:` +
+        `${minutos.toString().padStart(2, '0')}:` +
+        `${segundos.toString().padStart(2, '0')}`;
 }
 
 function finalizarJuego() {
@@ -93,16 +103,23 @@ function finalizarJuego() {
 }
 
 async function registrarEstadisticas(pacienteId, tiempo, errores) {
-    if (!pacienteId) return;
     try {
         const response = await fetch('/registrar-estadisticas', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ paciente_id: pacienteId, tiempo_juego: tiempo, errores: errores })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                paciente_id: pacienteId,
+                tiempo_juego: tiempo,
+                errores: errores
+            })
         });
+
         if (!response.ok) {
-            throw new Error("Error al registrar estadísticas.");
+            new Error("Error al registrar estadísticas.");
         }
+
     } catch (error) {
         console.error("Error:", error);
     }
@@ -180,4 +197,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-module.exports = { calcularTiempoJugado, registrarEstadisticas };
+
