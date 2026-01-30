@@ -1,6 +1,6 @@
 # Juego de Memoria Semántica
 
-Este proyecto consiste en un **juego de memoria semántica** diseñado para ayudar a personas con principios de Alzheimer, con el objetivo de ralentizar la pérdida de memoria y mejorar su situación actual. El juego utiliza categorías y palabras para estimular la memoria y la asociación, buscando promover la actividad cognitiva de forma entretenida y accesible.
+Este proyecto consiste en un **juego de memoria semántica** diseñado para ayudar a personas con principios de Alzheimer, con el objetivo de relentizar la pérdida de memoria y mejorar su situación actual. El juego utiliza categorías y palabras para estimular la memoria y la asociación, buscando promover la actividad cognitiva de forma entretenida y accesible.
 
 ## Descripción del Juego
 
